@@ -7,8 +7,8 @@ id = 1:100
 alter = rnorm( n=100 , mean=25 , sd=2 )
 
 #Variable Studienfach
-fächer = c("Statistik", "Data Science", "Mathe", "Informatik")
-studienfach = sample(fächer, 100, replace = TRUE, prob = c(0.3,0.3,0.15,0.25))
+fÃ¤cher = c("Statistik", "Data Science", "Mathe", "Informatik")
+studienfach = sample(fÃ¤cher, 100, replace = TRUE, prob = c(0.3,0.3,0.15,0.25))
 
 #Variable "Interesse an Programmieren"
 
@@ -43,3 +43,4 @@ mathe = function( x ){
 interesseMathe = mathe( c(1:100) )
 
 datensatz = data.frame( id, alter, studienfach, programmieren, interesseMathe)
+datensatz
