@@ -1,4 +1,4 @@
-Datensatz
+#Datensatz
 
 id = 1:100
 
@@ -55,4 +55,4 @@ matheLk = funcMatheLK(c(1:100))
 datensatz = data.frame( id, alter, studienfach, programmieren,interesseMathe,
                         matheLk) 
 
-
+write.csv(datensatz, "Datensatz.csv")
