@@ -26,6 +26,21 @@ mathe = function( x ){
 
 interesseMathe = mathe( c(1:100) )
 
+# Variable "Interesse an Programmieren"
+
+programmieren = c()
+for (i in 1:100){
+  if(studienfach[i] == "Statistik" | studienfach[i] == "Mathe"){
+    programmieren[i] = sample(1:3 ,1, prob = c(0.25 , 0.5, 0.25))
+  }
+  if(studienfach[i] == "Data Science"){
+    programmieren[i] = sample(3:5, 1, prob = c(0.25 , 0.5, 0.25))
+  }
+  if(studienfach[i] == "Informatik"){
+    programmieren[i] = sample(5:7, 1, prob = c(0.25 , 0.5, 0.25))
+  }
+}
+
 # Datensatz
 
-datensatz = data.frame( id, alter, studienfach, interesseMathe)
+datensatz = data.frame( id, alter, studienfach, interesseMathe, programmieren)
