@@ -5,7 +5,7 @@ library("moments")
 Datensatz <- read.csv("Datensatz.csv")
 
 # (a) Eine Funktion, die verschiedene geeignete deskriptive Statistiken
-# für metrische Variablen berechnet und ausgibt
+# f?r metrische Variablen berechnet und ausgibt
 
 # Merkmal alter
 alter_quantile <- quantile(Datensatz$alter)
@@ -18,19 +18,19 @@ alter_sd <- sd(Datensatz$alter)
 alter_skewness <- skewness(Datensatz$alter)
 alter_kurtosis <- kurtosis(Datensatz$alter)
 
-hist(Datensatz$alter, main="Histogramm von Alter", xlab = "Alter in Jahren", ylab =  "absolute Häufigkeit")
+hist(Datensatz$alter, main="Histogramm von Alter", xlab = "Alter in Jahren", ylab =  "absolute H?ufigkeit")
 boxplot(Datensatz$alter, main="Altersverteilung", horizontal=TRUE)
 
 # (b) Eine Funktion, die verschiedene geeignete deskriptive Statistiken
-# für kategoriale Variablen berechnet und ausgibt
+# f?r kategoriale Variablen berechnet und ausgibt
 
 
-# (c) Eine Funktion, die geeignete deskriptive bivariate Statistiken für
+# (c) Eine Funktion, die geeignete deskriptive bivariate Statistiken f?r
 # den Zusammenhang zwischen zwei kategorialen Variablen
 # berechnet ausgibt
 
 
-# (d) Eine Funktion, die geeignete deskriptive bivariate Statistiken für
+# (d) Eine Funktion, die geeignete deskriptive bivariate Statistiken f?r
 # den Zusammengang zwischen einer metrischen und einer
 # dichotomen Variablen berechnet und ausgibt
 
@@ -38,6 +38,30 @@ boxplot(Datensatz$alter, main="Altersverteilung", horizontal=TRUE)
 # (e) Eine Funktion, die eine mindestens ordinal skalierte Variable
 # quantilbasiert kategorisiert (z.B. in "niedrig", "mittel", "hoch")
 
+
+
+kategorisierung = function( x ){
+  niedrig = 0
+  mittel = 0
+  hoch = 0
+  
+  for( i in 1:100){
+    if( x[i] == 1  | x[i] == 2){ niedrig = niedrig + 1}
+    if( x[i] == 3  | x[i] == 4 | x[i] == 5){ mittel = mittel + 1}
+    if( x[i] == 6  | x[i] == 7){ hoch = hoch + 1}
+  }
+  return( c( niedrig,  mittel, hoch) )
+}
+
+katMathe = Datensatz$interesseMathe
+
+barplot( kategorisierung(katMathe), xlab = "Interesse Mathe niedrig, mittel,hoch", 
+         ylab = "Anzahl")
+
+katProg = Datensatz$programmieren
+
+barplot( kategorisierung(katProg), xlab = "Interesse Programmieren niedrig, mittel,hoch", 
+         ylab = "Anzahl")
 
 # (f) Eine Funktion, die eine geeignete Visualisierung von drei oder vier
 # kategorialen Variablen erstellt
