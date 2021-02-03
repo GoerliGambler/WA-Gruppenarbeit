@@ -5,7 +5,7 @@ library("moments")
 Datensatz <- read.csv("Datensatz.csv")
 
 # (a) Eine Funktion, die verschiedene geeignete deskriptive Statistiken
-# f?r metrische Variablen berechnet und ausgibt
+# fuer metrische Variablen berechnet und ausgibt
 
 # Merkmal alter
 alter_quantile <- quantile(Datensatz$alter)
@@ -18,19 +18,19 @@ alter_sd <- sd(Datensatz$alter)
 alter_skewness <- skewness(Datensatz$alter)
 alter_kurtosis <- kurtosis(Datensatz$alter)
 
-hist(Datensatz$alter, main="Histogramm von Alter", xlab = "Alter in Jahren", ylab =  "absolute H?ufigkeit")
+hist(Datensatz$alter, main="Histogramm von Alter", xlab = "Alter in Jahren", ylab =  "absolute Haeufigkeit")
 boxplot(Datensatz$alter, main="Altersverteilung", horizontal=TRUE)
 
 # (b) Eine Funktion, die verschiedene geeignete deskriptive Statistiken
-# f?r kategoriale Variablen berechnet und ausgibt
+# fuer kategoriale Variablen berechnet und ausgibt
 
 
-# (c) Eine Funktion, die geeignete deskriptive bivariate Statistiken f?r
+# (c) Eine Funktion, die geeignete deskriptive bivariate Statistiken fuer
 # den Zusammenhang zwischen zwei kategorialen Variablen
 # berechnet ausgibt
 
 
-# (d) Eine Funktion, die geeignete deskriptive bivariate Statistiken f?r
+# (d) Eine Funktion, die geeignete deskriptive bivariate Statistiken fuer
 # den Zusammengang zwischen einer metrischen und einer
 # dichotomen Variablen berechnet und ausgibt
 
