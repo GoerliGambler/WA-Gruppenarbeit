@@ -7,19 +7,40 @@ Datensatz <- read.csv("Datensatz.csv")[,-1]
 # (a) Eine Funktion, die verschiedene geeignete deskriptive Statistiken
 # fuer metrische Variablen berechnet und ausgibt
 
-# Merkmal alter
-alter_quantile <- quantile(Datensatz$alter)
-alter_mean <- mean(Datensatz$alter)
+descStatMet = function(metricValue) {
+  # Lagemaße
+  mv_quantile = quantile(metricValue)
+  mv_mean     = mean(metricValue)
+  names(mv_quantile) = c("q0.0", "q0.25", "q0.5", "q0.75", "q1.0")
+  names(mv_mean)     = "mean"
+  
+  # Streuungsmaße
+  mv_range = mv_quantile[5] - mv_quantile[1]
+  mv_iqr   = IQR(metricValue)
+  mv_sd    = sd(metricValue)
+  names(mv_range) = "range"
+  names(mv_iqr)   = "iqr"
+  names(mv_sd)    = "sd"
+  
+  # Höhere Momente
+  mv_skewness = skewness(metricValue)
+  mv_kurtosis = kurtosis(metricValue)
+  names(mv_skewness) = "skewness"
+  names(mv_kurtosis) = "kurtosis"
+  
+  # Ergebnis bestimmen
+  mv_result = c(mv_quantile, mv_mean, mv_range, mv_iqr, mv_sd,
+                mv_skewness, mv_kurtosis)
+  
+  # hist(Datensatz$alter, main="Histogramm von Alter", xlab = "Alter in Jahren", ylab =  "absolute Haeufigkeit")
+  # boxplot(Datensatz$alter, main="Altersverteilung", horizontal=TRUE)
+  
+  return(mv_result)
+}
 
-alter_range <- range(Datensatz$alter)
-alter_iqr <- IQR(Datensatz$alter)
-alter_sd <- sd(Datensatz$alter)
+test = descStatMet(Datensatz$alter)
 
-alter_skewness <- skewness(Datensatz$alter)
-alter_kurtosis <- kurtosis(Datensatz$alter)
 
-hist(Datensatz$alter, main="Histogramm von Alter", xlab = "Alter in Jahren", ylab =  "absolute Haeufigkeit")
-boxplot(Datensatz$alter, main="Altersverteilung", horizontal=TRUE)
 
 # (b) Eine Funktion, die verschiedene geeignete deskriptive Statistiken
 # fuer kategoriale Variablen berechnet und ausgibt
