@@ -2,7 +2,7 @@
 library("moments")
 
 # Datei einlesen
-Datensatz <- read.csv("Datensatz.csv")
+Datensatz <- read.csv("Datensatz.csv")[,-1]
 
 # (a) Eine Funktion, die verschiedene geeignete deskriptive Statistiken
 # fuer metrische Variablen berechnet und ausgibt
@@ -35,11 +35,52 @@ boxplot(Datensatz$alter, main="Altersverteilung", horizontal=TRUE)
 # dichotomen Variablen berechnet und ausgibt
 
 
+# bivStats - Berechnet Kennzahlen, um Zusammenhang zwischen einer dichotomen und
+#            einer metrischen Variable zu verdeutlichen
+#            
+#Input: dicho - Auspraegungen der dichotomen Variable (numerischer Vektor)
+#       metri - Auspraegungen der metrischen Variable (numerischer Vektor)
+#
+#Output: benannte Liste: summary - Matrix mit Summarys der, nach der dichotomen
+#                                  Variable kategorisierten, metrischen Variable
+#                                  (numerische Matrix)
+#                       correlation - Pearson-Korrelations-koeffizient zwischen 
+#                                     den Variablen (numerisch)
+#                       covariance - Kovarianz zwischen den Variablen (numerisch)
+
+bivStat = function(dicho, metri){
+  cNames = levels(as.factor(dicho))
+  #"Zuteilen" der Werte der metrischen Variable zu den Auspraegungen der 
+  #dichotomen Variable
+  dicho1 = dicho[1]
+  cName1 = cNames[cNames == dicho1]
+  metri1 = metri[dicho == dicho1]
+  cName2 = cNames[cNames != dicho1]
+  metri2 = metri[dicho != dicho1]
+  
+  #Summary fuer Zuordnungen erstellen und in Matrix abspeichern
+  summary1 = summary(metri1)
+  summary2 = summary(metri2)
+  summ = cbind(summary1, summary2)
+  colnames(summ) = c(cName1, cName2)
+  
+  #Variablen auf Korrelation und Covarianz untersuchen (jeweils mit Pearson)
+  dicho = as.numeric(dicho == dicho1)
+  corr = cor(dicho, metri, method = "pearson")
+  cova = cov(dicho, metri, method = "pearson")
+  
+  return(list(summary = summ, correlation = corr, covariance = cova))
+}
+#Bsp:
+bivStat(as.vector.factor(Datensatz$matheLk), Datensatz$alter)
+
+
+
 # (e) Eine Funktion, die eine mindestens ordinal skalierte Variable
 # quantilbasiert kategorisiert (z.B. in "niedrig", "mittel", "hoch")
 
 
-
+ 
 kategorisierung = function( x ){
   niedrig = 0
   mittel = 0
