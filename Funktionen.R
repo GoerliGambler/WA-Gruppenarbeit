@@ -42,6 +42,8 @@ test = descStatMet(Datensatz$alter)
 
 
 
+
+
 # (b) Eine Funktion, die verschiedene geeignete deskriptive Statistiken
 # fuer kategoriale Variablen berechnet und ausgibt
 
@@ -127,6 +129,15 @@ barplot( kategorisierung(katProg), xlab = "Interesse Programmieren niedrig, mitt
 
 # (f) Eine Funktion, die eine geeignete Visualisierung von drei oder vier
 # kategorialen Variablen erstellt
+
+# Funktion vis_kat: Visualisiert kategoriale Variablen
+# Eingabe : dataset : Ein Dataframe/Character Variable oder Liste mit 
+#                     kategorialen Daten
+# Ausgabe : Visualierte Darstellung 
+
+vis_kat <- function(dataset){
+  barplot(table(faecher), ylab = "Anzahl")
+}
 
 
 # Freiwillig: weitere zur Deskription und Visualisierung geeignete
