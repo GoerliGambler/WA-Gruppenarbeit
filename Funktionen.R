@@ -1,5 +1,7 @@
 # Verwendete Bibliotheken
 library("moments")
+library(rcompanion)
+library(DescTools)
 
 # Datei einlesen
 Datensatz <- read.csv("Datensatz.csv")[,-1]
@@ -51,6 +53,18 @@ test = descStatMet(Datensatz$alter)
 # (c) Eine Funktion, die geeignete deskriptive bivariate Statistiken fuer
 # den Zusammenhang zwischen zwei kategorialen Variablen
 # berechnet ausgibt
+
+katBivStats <- function(katx, katy){
+  
+  # Kontingenztafel
+  kreuztab <- table(katx, katy)
+  
+  # Cramers Kontingenzindex (Cramer's V)
+  cramerV <- cramerV(kreuztab)
+  
+  return(list(tabelle = kreuztab, cramerV = cramerV))
+  
+}
 
 
 # (d) Eine Funktion, die geeignete deskriptive bivariate Statistiken fuer
