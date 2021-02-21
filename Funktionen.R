@@ -54,6 +54,15 @@ test = descStatMet(Datensatz$alter)
 # den Zusammenhang zwischen zwei kategorialen Variablen
 # berechnet ausgibt
 
+# katBivStats - Berechnet Kennzahlen für den Zusammenhang zwischen
+# zwei kategorialen Variablen
+
+# Input: katx, katy - jeweils Auspraegungen einer kategorialen Variable
+#
+# Output: benannte Liste: tabelle - Kontingenztabelle der Faktoren
+#                         cramerV - Kontingenzkoeffizient nach Cramer
+#
+
 katBivStats <- function(katx, katy){
   
   # Kontingenztafel
