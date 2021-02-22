@@ -10,13 +10,13 @@ Datensatz <- read.csv("Datensatz.csv")[,-1]
 # fuer metrische Variablen berechnet und ausgibt
 
 descStatMet = function(metricValue) {
-  # Lagema�e
+  # Lagemaße
   mv_quantile = quantile(metricValue)
   mv_mean     = mean(metricValue)
   names(mv_quantile) = c("q0.0", "q0.25", "q0.5", "q0.75", "q1.0")
   names(mv_mean)     = "mean"
   
-  # Streuungsma�e
+  # Streuungsmaße
   mv_range = mv_quantile[5] - mv_quantile[1]
   mv_iqr   = IQR(metricValue)
   mv_sd    = sd(metricValue)
@@ -24,7 +24,7 @@ descStatMet = function(metricValue) {
   names(mv_iqr)   = "iqr"
   names(mv_sd)    = "sd"
   
-  # H�here Momente
+  # Höhere Momente
   mv_skewness = skewness(metricValue)
   mv_kurtosis = kurtosis(metricValue)
   names(mv_skewness) = "skewness"
@@ -49,12 +49,29 @@ test = descStatMet(Datensatz$alter)
 # (b) Eine Funktion, die verschiedene geeignete deskriptive Statistiken
 # fuer kategoriale Variablen berechnet und ausgibt
 
+# Kategoriale Variabeln werden gut durch Barplots wiedergegeben. 
+# Minimum und Modalwert sind brauchbare Kenngrößen
+# die Wahl der Studienfächer: 
+# Stabdiagramm
+barplot(table(studienfach)[1:4], main = "Studienfächer",
+        names.arg = c("Data Science", "Informatik", "Mathe",
+                     "Statistik"), las=1, xlab = "Studienfaecher",
+        ylab = "absolute Haeufigkeit", col = "green")
+# absolute Häufigkeiten  
+DataStud <- sum(studienfach == "Data Science")
+InfoStud <- sum(studienfach == "Informatik")
+MathStud <- sum(studienfach == "Mathe")
+StatStud <- sum(studienfach == "Statistik")
+# Modalwert
+max("DataStud","InfoStud", "MathStud","StatStud")
+# Minimum
+min("DataStud","InfoStud", "MathStud","StatStud")
 
 # (c) Eine Funktion, die geeignete deskriptive bivariate Statistiken fuer
 # den Zusammenhang zwischen zwei kategorialen Variablen
 # berechnet ausgibt
 
-# katBivStats - Berechnet Kennzahlen f�r den Zusammenhang zwischen
+# katBivStats - Berechnet Kennzahlen für den Zusammenhang zwischen
 # zwei kategorialen Variablen
 
 # Input: katx, katy - jeweils Auspraegungen einer kategorialen Variable
