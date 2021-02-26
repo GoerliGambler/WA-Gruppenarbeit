@@ -5,10 +5,9 @@ Das csv-File enthält die erstellten Daten, und die R-Skripts die Methoden zur A
 
 #------------------------------------------------------------------------------------------------------------#
 
-Datensatz.R        =   "Skript"(1) laut Aufgabenstellung
-
-Funktionen.R       =   "Funktionen-Skript 1" laut Aufgabenstellung
-
-Hilfsfunktionen.R  =   "Funktionen-Skript 2" laut Aufgabenstellung
-
-Auswertung.R       =   "viertes Skript in ihrem Repository" laut Aufgabenstellung
+|Name des Skripts| Bez. in der Aufgabenstellung|
+|---|---|
+|Datensatz.R| "Skript"(1)|
+|Funktionen.R|"Funktionen-Skript 1"|
+|Hilfsfunktionen.R|"Funktionen-Skript 2"|
+|Auswertung.R|"viertes Skript in ihrem Repository"|
