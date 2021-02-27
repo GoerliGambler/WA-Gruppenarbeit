@@ -206,10 +206,10 @@ vis_kat1 <- function(dataset){
   par(mfrow = c(1,4))
   
   # Durchschnittsalter
-  boxplot(x = gruppeDS$alter, xlab = "Data Scienctists")
-  boxplot(x = gruppeST$alter, xlab = "Statistiker")
-  boxplot(x = gruppeMA$alter, xlab = "Mathematiker")
-  boxplot(x = gruppeIN$alter, xlab = "Informatik")
+  boxplot(x = gruppeDS$alter, xlab = "Data Scienctists", ylab = "Alter")
+  boxplot(x = gruppeST$alter, xlab = "Statistiker", ylab = "Alter")
+  boxplot(x = gruppeMA$alter, xlab = "Mathematiker", ylab = "Alter")
+  boxplot(x = gruppeIN$alter, xlab = "Informatik", ylab = "Alter")
 }
 
 # vis_kat2 :  Programmierkenntnisse
@@ -218,10 +218,14 @@ vis_kat2 <- function(dataset){
   # Neues Fenster
   par(mfrow = c(1,4))
   
-  boxplot(x = gruppeDS$programmieren, xlab = "Data Scienctists")
-  boxplot(x = gruppeST$programmieren, xlab = "Statistiker")
-  boxplot(x = gruppeMA$programmieren, xlab = "Mathematiker")
-  boxplot(x = gruppeIN$programmieren, xlab = "Informatik")
+  boxplot(x = gruppeDS$programmieren, xlab = "Data Scienctists", 
+          ylab = "Programmierkenntnisse")
+  boxplot(x = gruppeST$programmieren, xlab = "Statistiker", 
+          ylab = "Programmierkenntnisse")
+  boxplot(x = gruppeMA$programmieren, xlab = "Mathematiker", 
+          ylab = "Programmierkenntnisse")
+  boxplot(x = gruppeIN$programmieren, xlab = "Informatik", 
+          ylab = "Programmierkenntnisse")
 }
 
 # vis_kat3  : Intereses an Mathematik
@@ -230,16 +234,20 @@ vis_kat3 <- function(dataset){
   # Neues Fenster
   par(mfrow = c(1,4))
   
-  boxplot(x = gruppeDS$interesseMathe, xlab = "Data Scienctists")
-  boxplot(x = gruppeST$interesseMathe, xlab = "Statistiker")
-  boxplot(x = gruppeMA$interesseMathe, xlab = "Mathematiker")
-  boxplot(x = gruppeIN$interesseMathe, xlab = "Informatik")
+  boxplot(x = gruppeDS$interesseMathe, xlab = "Data Scienctists", 
+          ylab = "Interesse an Mathematik")
+  boxplot(x = gruppeST$interesseMathe, xlab = "Statistiker", 
+          ylab = "Interesse an Mathematik")
+  boxplot(x = gruppeMA$interesseMathe, xlab = "Mathematiker", 
+          ylab = "Interesse an Mathematik")
+  boxplot(x = gruppeIN$interesseMathe, xlab = "Informatik", 
+          ylab = "Interesse an Mathematik")
 }
 
-## Direkte Ausgabe als Funktionstest
 # vis_kat1(Datensatz)
 # vis_kat2(Datensatz)
 # vis_kat3(Datensatz)
+
 
 # Freiwillig: weitere zur Deskription und Visualisierung geeignete
 # Funktionen
