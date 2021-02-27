@@ -39,9 +39,8 @@ katBivStats(Datensatz$programmieren, Datensatz$interesseMathe)
 # das Interesse an Mathematik und Programmierung hat hier einen leichten 
 # positiven Zusammenhang
 
+#-------------------------------------#
 ### Mit f)
-## Eine Funktion, die eine geeignete Visualisierung von drei oder vier
-## kategorialen Variablen erstellt
 
 vis_kat1(Datensatz)
 # Wir sehen dass das Durchschnittsalter der Data Scientists und Statistiker
