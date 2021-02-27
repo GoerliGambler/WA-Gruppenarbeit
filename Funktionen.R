@@ -43,9 +43,6 @@ descStatMet = function(metricValue) {
 test = descStatMet(Datensatz$alter)
 
 
-
-
-
 # (b) Eine Funktion, die verschiedene geeignete deskriptive Statistiken
 # fuer kategoriale Variablen berechnet und ausgibt
 
