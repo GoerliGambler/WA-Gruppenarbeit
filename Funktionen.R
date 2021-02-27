@@ -244,6 +244,7 @@ vis_kat3 <- function(dataset){
           ylab = "Interesse an Mathematik")
 }
 
+# Direktausfuehrung als Test:
 # vis_kat1(Datensatz)
 # vis_kat2(Datensatz)
 # vis_kat3(Datensatz)
