@@ -237,9 +237,9 @@ vis_kat3 <- function(dataset){
 }
 
 
-vis_kat1(Datensatz)
-vis_kat2(Datensatz)
-vis_kat3(Datensatz)
+# vis_kat1(Datensatz)
+# vis_kat2(Datensatz)
+# vis_kat3(Datensatz)
 
 # Freiwillig: weitere zur Deskription und Visualisierung geeignete
 # Funktionen
