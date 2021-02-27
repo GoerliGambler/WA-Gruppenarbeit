@@ -66,3 +66,30 @@ Mathematiker$interesseMathe
 # [1] 3 1 1 2 3 3
 # Wir scheinen tatsaechlich nur wenige Mathematiker zu haben, welche zudem 
 # auch noch alle uninteressiert an Mathematik sind! 
+
+#-------------------------------------#
+
+# mit b)
+# Stabdiagramm
+barplot(table(Datensatz$studienfach)[1:4], main = "Studienfächer",
+        names.arg = c("Data Science", "Informatik", "Mathe",
+                     "Statistik"), las=1, xlab = "Studienfaecher",
+        ylab = "absolute Haeufigkeit", col = "green")
+# Das Stabdiagramm gibt einen ersten Überblick über die Verteilung der Fächer. Für die konkreten Zahlen rechnen wir weiter:
+# absolute Häufigkeiten  
+DataStud <- sum(Datensatz$studienfach == "Data Science")
+InfoStud <- sum(Datensatz$studienfach == "Informatik")
+MathStud <- sum(Datensatz$studienfach == "Mathe")
+StatStud <- sum(Datensatz$studienfach == "Statistik")
+# Modalwert
+c("DataStud","InfoStud", "MathStud","StatStud")[which.max(c(DataStud,InfoStud, MathStud,StatStud))]
+InfoStud
+#Der Modalwert ist Infostud, also die Informatikstudenten. Dieser beträgt mit 34 gut ein drittel aller Beobachtungen.
+# Minimum
+c("DataStud","InfoStud", "MathStud","StatStud")[which.min(c(DataStud,InfoStud, MathStud,StatStud))]
+MathStud
+#Das Minimum ist Mathstud, also die Mathematikstudenten. Diese betragen bloß 6 Studenten und liegen somit weit hinter den anderen Studienfächer.
+DataStud
+StatStud
+# Die anderen beiden Studiengänge liegen mit Data Science bei 27 und den Statistikstudenten bei 33 Studenten zwischen den beiden Extremwerten.
+# Dabei zeigt das Stabdiagramm, dass es sich um fast gleichviele Infomatik- und Statistikstudenten handelt.
