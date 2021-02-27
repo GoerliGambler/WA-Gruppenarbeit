@@ -63,9 +63,9 @@ InfoStud <- sum(Datensatz$studienfach == "Informatik")
 MathStud <- sum(Datensatz$studienfach == "Mathe")
 StatStud <- sum(Datensatz$studienfach == "Statistik")
 # Modalwert
-max("DataStud","InfoStud", "MathStud","StatStud")
+c("DataStud","InfoStud", "MathStud","StatStud")[which.max(c(DataStud,InfoStud, MathStud,StatStud))]
 # Minimum
-min("DataStud","InfoStud", "MathStud","StatStud")
+c("DataStud","InfoStud", "MathStud","StatStud")[which.min(c(DataStud,InfoStud, MathStud,StatStud))]
 
 # (c) Eine Funktion, die geeignete deskriptive bivariate Statistiken fuer
 # den Zusammenhang zwischen zwei kategorialen Variablen
