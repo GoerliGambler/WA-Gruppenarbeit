@@ -236,7 +236,7 @@ vis_kat3 <- function(dataset){
   boxplot(x = gruppeIN$interesseMathe, xlab = "Informatik")
 }
 
-
+## Direkte Ausgabe als Funktionstest
 # vis_kat1(Datensatz)
 # vis_kat2(Datensatz)
 # vis_kat3(Datensatz)
