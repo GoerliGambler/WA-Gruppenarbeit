@@ -10,13 +10,13 @@ Datensatz <- read.csv("Datensatz.csv")[,-1]
 # fuer metrische Variablen berechnet und ausgibt
 
 descStatMet = function(metricValue) {
-  # Lagemaße
+  # LagemaÃe
   mv_quantile = quantile(metricValue)
   mv_mean     = mean(metricValue)
   names(mv_quantile) = c("q0.0", "q0.25", "q0.5", "q0.75", "q1.0")
   names(mv_mean)     = "mean"
   
-  # Streuungsmaße
+  # StreuungsmaÃe
   mv_range = mv_quantile[5] - mv_quantile[1]
   mv_iqr   = IQR(metricValue)
   mv_sd    = sd(metricValue)
@@ -24,7 +24,7 @@ descStatMet = function(metricValue) {
   names(mv_iqr)   = "iqr"
   names(mv_sd)    = "sd"
   
-  # Höhere Momente
+  # HÃ¶here Momente
   mv_skewness = skewness(metricValue)
   mv_kurtosis = kurtosis(metricValue)
   names(mv_skewness) = "skewness"
@@ -50,18 +50,18 @@ test = descStatMet(Datensatz$alter)
 # fuer kategoriale Variablen berechnet und ausgibt
 
 # Kategoriale Variabeln werden gut durch Barplots wiedergegeben. 
-# Minimum und Modalwert sind brauchbare Kenngrößen
-# die Wahl der Studienfächer: 
+# Minimum und Modalwert sind brauchbare KenngroeSen
+# die Wahl der Studienfaecher: 
 # Stabdiagramm
-barplot(table(studienfach)[1:4], main = "Studienfächer",
+barplot(table(Datensatz$studienfach)[1:4], main = "Studienfaecher",
         names.arg = c("Data Science", "Informatik", "Mathe",
                      "Statistik"), las=1, xlab = "Studienfaecher",
         ylab = "absolute Haeufigkeit", col = "green")
-# absolute Häufigkeiten  
-DataStud <- sum(studienfach == "Data Science")
-InfoStud <- sum(studienfach == "Informatik")
-MathStud <- sum(studienfach == "Mathe")
-StatStud <- sum(studienfach == "Statistik")
+# absolute Haeufigkeiten  
+DataStud <- sum(Datensatz$studienfach == "Data Science")
+InfoStud <- sum(Datensatz$studienfach == "Informatik")
+MathStud <- sum(Datensatz$studienfach == "Mathe")
+StatStud <- sum(Datensatz$studienfach == "Statistik")
 # Modalwert
 max("DataStud","InfoStud", "MathStud","StatStud")
 # Minimum
@@ -71,7 +71,7 @@ min("DataStud","InfoStud", "MathStud","StatStud")
 # den Zusammenhang zwischen zwei kategorialen Variablen
 # berechnet ausgibt
 
-# katBivStats - Berechnet Kennzahlen für den Zusammenhang zwischen
+# katBivStats - Berechnet Kennzahlen fÃ¼r den Zusammenhang zwischen
 # zwei kategorialen Variablen
 
 # Input: katx, katy - jeweils Auspraegungen einer kategorialen Variable
