@@ -170,15 +170,76 @@ barplot( kategorisierung(katProg), xlab = "Interesse Programmieren niedrig, mitt
 # (f) Eine Funktion, die eine geeignete Visualisierung von drei oder vier
 # kategorialen Variablen erstellt
 
-# Funktion vis_kat: Visualisiert kategoriale Variablen
+# Uebersicht
+head(Datensatz)
+
+# Die Spalte "studienfach" scheint sich am besten fuers Gruppieren zu eignen. 
+table(Datensatz$studienfach)
+# Wir haben also 4 Gruppen. 
+
+# Diese speichern wir jeweils in eine Gruppenvariable
+gruppeDS <- Datensatz[Datensatz$studienfach == "Data Science" ,]
+gruppeST <- Datensatz[Datensatz$studienfach == "Statistik" ,] 
+gruppeMA <- Datensatz[Datensatz$studienfach == "Mathe" ,]
+gruppeIN <- Datensatz[Datensatz$studienfach == "Informatik" ,]
+
+
+ncol(Datensatz)
+# Wir sehen dass wir 6 Spalten haben.
+# Unsere zu interessierene kategoriale Variable werden 
+# "alter" (=Alter), 
+# "programmieren" (=Programmierkenntnisse von 1-10),
+# "interesseMathe (=Interesse an Mathematik von 1-10)
+# sein.
+
+# Da einzelnt abgerufen werden 3 Funktionen erstellt.
+
+# Funktion vis_kat(1-3)    : Visualisiert kategoriale Variablen
 # Eingabe : dataset : Ein Dataframe/Character Variable oder Liste mit 
 #                     kategorialen Daten
-# Ausgabe : Visualierte Darstellung 
+# Ausgabe : Visualierte Darstellung der 4 Gruppen in Boxplots
 
-vis_kat <- function(dataset){
-  barplot(table(faecher), ylab = "Anzahl")
+# vis_kat1 = Alter
+vis_kat1 <- function(dataset){
+  
+  # Neues Fenster
+  par(mfrow = c(1,4))
+  
+  # Durchschnittsalter
+  boxplot(x = gruppeDS$alter, xlab = "Data Scienctists")
+  boxplot(x = gruppeST$alter, xlab = "Statistiker")
+  boxplot(x = gruppeMA$alter, xlab = "Mathematiker")
+  boxplot(x = gruppeIN$alter, xlab = "Informatik")
 }
 
+# vis_kat2 :  Programmierkenntnisse
+vis_kat2 <- function(dataset){
+  
+  # Neues Fenster
+  par(mfrow = c(1,4))
+  
+  boxplot(x = gruppeDS$programmieren, xlab = "Data Scienctists")
+  boxplot(x = gruppeST$programmieren, xlab = "Statistiker")
+  boxplot(x = gruppeMA$programmieren, xlab = "Mathematiker")
+  boxplot(x = gruppeIN$programmieren, xlab = "Informatik")
+}
+
+# vis_kat3  : Intereses an Mathematik
+vis_kat3 <- function(dataset){
+  
+  # Neues Fenster
+  par(mfrow = c(1,4))
+  
+  boxplot(x = gruppeDS$interesseMathe, xlab = "Data Scienctists")
+  boxplot(x = gruppeST$interesseMathe, xlab = "Statistiker")
+  boxplot(x = gruppeMA$interesseMathe, xlab = "Mathematiker")
+  boxplot(x = gruppeIN$interesseMathe, xlab = "Informatik")
+}
+
+
+vis_kat1(Datensatz)
+vis_kat2(Datensatz)
+vis_kat3(Datensatz)
 
 # Freiwillig: weitere zur Deskription und Visualisierung geeignete
 # Funktionen
