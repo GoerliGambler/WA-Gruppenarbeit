@@ -4,16 +4,17 @@ source("Funktionen.R")
 Datensatz <- read.csv("Datensatz.csv")[,-1]
 
 
+### mit c)
 
 ## Zusammenhang zwischen Studienfach und Interesse am Programmieren
 
 katBivStats(Datensatz$studienfach, as.factor(Datensatz$programmieren))
 
-# Der Cramer V Koeffizient zeigt einen mittel-groSen Zusammenhang zwischen 
+# Der Cramer V Koeffizient zeigt einen mittel-grossen Zusammenhang zwischen 
 # Studienfach und dem Interesse am Programmieren
 
 # Die Studierenden der Data Science liegen etwa im mittleren Bereich, 
-# die Informatik-Studierenden gaben ein eher groSes, und die Statistik- 
+# die Informatik-Studierenden gaben ein eher grosses, und die Statistik- 
 # und Mathematik-Studierenden ein geringeres Interesse an.
 
 
@@ -26,9 +27,9 @@ katBivStats(Datensatz$studienfach, as.factor(Datensatz$interesseMathe))
 # zwischen dem Studienfach und dem Interesse an Mathematik
 
 # Das Interesse bei den Data Scientists ist liegt jeweils im mittleren Bereich,
-# die Informatik-Studierenden tendieren eher zu groeSerem, und die Statistik-Studierenden
+# die Informatik-Studierenden tendieren eher zu groesserem, und die Statistik-Studierenden
 # zu geringerem Interesse; die Mathematik-Studierenden gaben jeweils ein
-# eher geringes Inzeresse an
+# eher geringes Interesse an
 
 
 ## Zusammenhang zwischen Interesse an Mathematik und Programmieren
@@ -38,6 +39,21 @@ katBivStats(Datensatz$programmieren, Datensatz$interesseMathe)
 # Der Cramer V Koeffizient zeigt einen mittel-kleinen Zusammenhang an, 
 # das Interesse an Mathematik und Programmierung hat hier einen leichten 
 # positiven Zusammenhang
+
+#-------------------------------------#
+
+### mit d)
+
+## Zusammenhang zwischen Alter und Mathe-LK
+
+bivStat(Datensatz$matheLk, Datensatz$alter)
+
+# Sowohl Korrelation als auch Kovarianz liegen im niedrigen positiven Bereich.
+# Es gibt also nur einen leichten Zusammenhang. Diejenigen Studierenden die 
+# in der Schule einen Mathe-LK hatten, sind eher etwas juenger als die,
+# die keinen Mathe-LK hatten
+# Wie die Summary zeigt, hat das Alter der LK-Gruppe eine groessere Range,
+# bei der anderen Gruppe streut es aber etwas mehr
 
 #-------------------------------------#
 ### Mit f)
