@@ -68,6 +68,15 @@ bivStat(Datensatz$matheLk, Datensatz$alter)
 # bei der anderen Gruppe streut es aber etwas mehr
 
 #-------------------------------------#
+
+### mit e)
+
+# Die Funktion zu e) aus Funktion.R erstellt zwei Barplots zu "interesseMathe" 
+# und "programmieren". Bei "interesseMathe" sieht liegen der großteil der Daten
+# in der Kategorie "Mittel". Die Kategorien "Hoch" und "Niedrig" sind kaum
+# vertreten. Bei "Programmieren" sind die Kategorie gleichmässiger besetzt,
+# auch wenn "Mittel" am häufigsten auftritt.
+
 ### Mit f)
 
 vis_kat1(Datensatz)
