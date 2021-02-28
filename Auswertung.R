@@ -3,6 +3,18 @@
 source("Funktionen.R")
 Datensatz <- read.csv("Datensatz.csv")[,-1]
 
+### mit a)
+
+# Auswertung des Merkmals Alter
+descStatMetri(Datensatz$alter)
+# Das Alter liegt in etwa zwischen 19 und 29, mit einem Median und arith. Mittel
+# bei etwa 25. Das deutet auf eine recht symmetrische Verteilung hin und auch 
+# der Schiefe-Koeffizient passt dazu. Die Standardabweichung liegt bei etwa 2.
+# Die Wölbungswert von ~3 zeigt eine leptokurtische Verteilung an.
+
+# Visualisierung
+hist(Datensatz$alter, main="Histogramm von Alter", xlab = "Alter in Jahren", ylab =  "absolute Haeufigkeit")
+boxplot(Datensatz$alter, main="Altersverteilung", horizontal=TRUE)
 
 ### mit c)
 
