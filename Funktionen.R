@@ -21,7 +21,7 @@ Datensatz <- read.csv("Datensatz.csv")[,-1]
 #                         sd       - Standardabweichung
 #                         skewness - Momentenkoeffizient der Schiefe
 #                         kurtosis - Woelbung
-descStatMet = function(metri) {
+descStatMetri = function(metri) {
   # Lagemasse
   m_quantile = quantile(metri)
   m_mean     = mean(metri)
