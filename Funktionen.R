@@ -9,14 +9,29 @@ Datensatz <- read.csv("Datensatz.csv")[,-1]
 # (a) Eine Funktion, die verschiedene geeignete deskriptive Statistiken
 # fuer metrische Variablen berechnet und ausgibt
 
+# descStatMet - Bestimmt deskriptive Statistiken fuer eine metrische Variable
+
+# input:metricValue - Liste mit metrischen Auspraegungen
+
+# output: benannte Liste: q0.0     - Minimum
+#                         q0.25    - erstes Quartil
+#                         q0.5     - Median
+#                         q0.75    - drittes Quartil
+#                         q1.0     - Maximum
+#                         range    - Spannweite
+#                         iqr      - Interquarilsabstand
+#                         sd       - Standardabweichung
+#                         skewness - Momentenkoeffizient der Schiefe
+#                         kurtosis - W�lbung
+
 descStatMet = function(metricValue) {
-  # LagemaÃe
+  # Lagemasse
   mv_quantile = quantile(metricValue)
   mv_mean     = mean(metricValue)
   names(mv_quantile) = c("q0.0", "q0.25", "q0.5", "q0.75", "q1.0")
   names(mv_mean)     = "mean"
   
-  # StreuungsmaÃe
+  # Streuungsmasse
   mv_range = mv_quantile[5] - mv_quantile[1]
   mv_iqr   = IQR(metricValue)
   mv_sd    = sd(metricValue)
@@ -24,7 +39,7 @@ descStatMet = function(metricValue) {
   names(mv_iqr)   = "iqr"
   names(mv_sd)    = "sd"
   
-  # HÃ¶here Momente
+  # Hoehere Momente
   mv_skewness = skewness(metricValue)
   mv_kurtosis = kurtosis(metricValue)
   names(mv_skewness) = "skewness"
