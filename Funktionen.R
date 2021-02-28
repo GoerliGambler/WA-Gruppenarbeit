@@ -10,9 +10,7 @@ Datensatz <- read.csv("Datensatz.csv")[,-1]
 # fuer metrische Variablen berechnet und ausgibt
 
 # descStatMet - Bestimmt deskriptive Statistiken fuer eine metrische Variable
-
-# input:metricValue - Liste mit metrischen Auspraegungen
-
+# input:                  metri    - Liste mit metrischen Auspraegungen
 # output: benannte Liste: q0.0     - Minimum
 #                         q0.25    - erstes Quartil
 #                         q0.5     - Median
@@ -22,41 +20,33 @@ Datensatz <- read.csv("Datensatz.csv")[,-1]
 #                         iqr      - Interquarilsabstand
 #                         sd       - Standardabweichung
 #                         skewness - Momentenkoeffizient der Schiefe
-#                         kurtosis - Wölbung
-
-descStatMet = function(metricValue) {
+#                         kurtosis - Woelbung
+descStatMet = function(metri) {
   # Lagemasse
-  mv_quantile = quantile(metricValue)
-  mv_mean     = mean(metricValue)
-  names(mv_quantile) = c("q0.0", "q0.25", "q0.5", "q0.75", "q1.0")
-  names(mv_mean)     = "mean"
+  m_quantile = quantile(metri)
+  m_mean     = mean(metri)
+  names(m_quantile) = c("q0.0", "q0.25", "q0.5", "q0.75", "q1.0")
+  names(m_mean)     = "mean"
   
   # Streuungsmasse
-  mv_range = mv_quantile[5] - mv_quantile[1]
-  mv_iqr   = IQR(metricValue)
-  mv_sd    = sd(metricValue)
-  names(mv_range) = "range"
-  names(mv_iqr)   = "iqr"
-  names(mv_sd)    = "sd"
+  m_range = m_quantile[5] - m_quantile[1]
+  m_iqr   = IQR(metri)
+  m_sd    = sd(metri)
+  names(m_range) = "range"
+  names(m_iqr)   = "iqr"
+  names(m_sd)    = "sd"
   
   # Hoehere Momente
-  mv_skewness = skewness(metricValue)
-  mv_kurtosis = kurtosis(metricValue)
-  names(mv_skewness) = "skewness"
-  names(mv_kurtosis) = "kurtosis"
+  m_skewness = skewness(metri)
+  m_kurtosis = kurtosis(metri)
+  names(m_skewness) = "skewness"
+  names(m_kurtosis) = "kurtosis"
   
   # Ergebnis bestimmen
-  mv_result = c(mv_quantile, mv_mean, mv_range, mv_iqr, mv_sd,
-                mv_skewness, mv_kurtosis)
-  
-  # hist(Datensatz$alter, main="Histogramm von Alter", xlab = "Alter in Jahren", ylab =  "absolute Haeufigkeit")
-  # boxplot(Datensatz$alter, main="Altersverteilung", horizontal=TRUE)
+  mv_result = c(m_quantile, m_mean, m_range, m_iqr, m_sd, m_skewness, m_kurtosis)
   
   return(mv_result)
 }
-
-test = descStatMet(Datensatz$alter)
-
 
 # (b) Eine Funktion, die verschiedene geeignete deskriptive Statistiken
 # fuer kategoriale Variablen berechnet und ausgibt
